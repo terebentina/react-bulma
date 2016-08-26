@@ -1,5 +1,5 @@
 import Box from './components/Box';
-import Button from './components/Button';
+import Link from './components/Link';
 import Control from './components/Control';
 import Icon from './components/Icon';
 import Input from './components/Input';
@@ -13,7 +13,7 @@ import Tag from './components/Tag';
 
 export default {
   Box,
-  Button,
+  Link,
   Control,
   Icon,
   Input,
