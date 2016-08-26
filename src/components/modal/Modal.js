@@ -13,6 +13,12 @@ class Modal extends PureComponent {
     onClose: PropTypes.func,
   };
 
+  componentDidMount() {
+    if (this.props.isActive) {
+      this.onShow();
+    }
+  }
+
   componentWillUpdate(nextProps) {
     if (!this.props.isActive && nextProps.isActive) {
       this.onShow();
@@ -20,7 +26,6 @@ class Modal extends PureComponent {
   }
 
   handleDocumentKeyUp = (e) => {
-    console.log('keyup');
     if (e.keyCode === 27) {
       this.onClose();
     }
