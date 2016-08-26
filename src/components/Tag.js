@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 
-function Tag({ children, type, size, hasClose }) {
+function Tag({ children, kind, size, hasClose }) {
   let className = 'tag';
-  if (type) {
-    className += ` is-${type}`;
+  if (kind) {
+    className += ` is-${kind}`;
   }
   if (size) {
     className += ` is-${size}`;
@@ -19,7 +19,7 @@ function Tag({ children, type, size, hasClose }) {
 
 Tag.propTypes = {
   children: PropTypes.any,
-  type: PropTypes.oneOf(['dark', 'primary', 'info', 'success', 'warning', 'danger']),
+  kind: PropTypes.oneOf(['dark', 'primary', 'info', 'success', 'warning', 'danger']),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   hasClose: PropTypes.bool,
 };

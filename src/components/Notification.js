@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 
-function Notification({ children, type, hasClose }) {
+function Notification({ children, kind, hasClose }) {
   let cName = 'notification';
-  if (type) {
-    cName += ` is-${type}`;
+  if (kind) {
+    cName += ` is-${kind}`;
   }
 
   return (
@@ -16,7 +16,7 @@ function Notification({ children, type, hasClose }) {
 
 Notification.propTypes = {
   children: PropTypes.any,
-  type: PropTypes.oneOf(['primary', 'info', 'success', 'warning', 'danger']),
+  kind: PropTypes.oneOf(['primary', 'info', 'success', 'warning', 'danger']),
   hasClose: PropTypes.bool,
 };
 

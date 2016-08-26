@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react';
 import Icon from './Icon';
 
-function Link({ children, type, size, style, state, icon, iconPosition }) {
+function Link({ children, kind, size, style, state, icon, iconPosition }) {
   let className = 'button';
-  if (type) {
-    className += ` is-${type}`;
+  if (kind) {
+    className += ` is-${kind}`;
   }
   if (size) {
     className += ` is-${size}`;
@@ -27,7 +27,7 @@ function Link({ children, type, size, style, state, icon, iconPosition }) {
 
 Link.propTypes = {
   children: PropTypes.any,
-  type: PropTypes.oneOf(['primary', 'info', 'success', 'warning', 'danger', 'link']),
+  kind: PropTypes.oneOf(['primary', 'info', 'success', 'warning', 'danger', 'link']),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   style: PropTypes.oneOf(['outlined', 'inverted']),
   state: PropTypes.oneOf(['loading', 'active', 'disabled']),
