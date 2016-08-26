@@ -27,35 +27,19 @@ function Input({ value, name, id, type = 'text', label, placeholder, expanded, k
     inputClassName += ' is-expanded';
   }
 
-  const input = (
-    <input
-      value={value}
-      className={inputClassName}
-      type={type}
-      name={name}
-      id={id}
-      placeholder={placeholder}
-      disabled={state == 'disabled'}
-      onChange={onChange}
-    />
-  );
-
-  if (label) {
-    return (
-      <div>
-        <label className="label" htmlFor={id}>{label}</label>
-        <Control className={controlClassName}>
-          {input}
-          {icon && <Icon name={icon} />}
-          {message && <span className={messageClassName}>{message}</span>}
-        </Control>
-      </div>
-    );
-  }
-
   return (
     <Control className={controlClassName}>
-      {input}
+      {label && <label className="label" htmlFor={id}>{label}</label>}
+      <input
+        value={value}
+        className={inputClassName}
+        type={type}
+        name={name}
+        id={id}
+        placeholder={placeholder}
+        disabled={state == 'disabled'}
+        onChange={onChange}
+      />
       {icon && <Icon name={icon} />}
       {message && <span className={messageClassName}>{message}</span>}
     </Control>
