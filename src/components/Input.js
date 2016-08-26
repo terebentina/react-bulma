@@ -2,14 +2,14 @@ import React, { PropTypes } from 'react';
 import Control from './Control';
 import Icon from './Icon';
 
-function Input({ value, name, id, label, placeholder, expanded, type, size, state, message, icon, iconPosition, onChange }) {
+function Input({ value, name, id, type = 'text', label, placeholder, expanded, kind, size, state, message, icon, iconPosition, onChange }) {
   let inputClassName = 'input';
   let controlClassName = '';
   let messageClassName = 'help';
 
-  if (type) {
-    inputClassName += ` is-${type}`;
-    messageClassName += ` is-${type}`;
+  if (kind) {
+    inputClassName += ` is-${kind}`;
+    messageClassName += ` is-${kind}`;
   }
   if (size) {
     inputClassName += ` is-${size}`;
@@ -31,7 +31,7 @@ function Input({ value, name, id, label, placeholder, expanded, type, size, stat
     <input
       value={value}
       className={inputClassName}
-      type="text"
+      type={type}
       name={name}
       id={id}
       placeholder={placeholder}
@@ -66,10 +66,11 @@ Input.propTypes = {
   value: PropTypes.string,
   name: PropTypes.string,
   id: PropTypes.string,
+  type: PropTypes.string,
   label: PropTypes.string,
   placeholder: PropTypes.string,
   expanded: PropTypes.bool,
-  type: PropTypes.oneOf(['primary', 'info', 'success', 'warning', 'danger']),
+  kind: PropTypes.oneOf(['primary', 'info', 'success', 'warning', 'danger']),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   state: PropTypes.oneOf(['loading', 'disabled']),
   message: PropTypes.string,
