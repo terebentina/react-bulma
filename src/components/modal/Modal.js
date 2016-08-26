@@ -20,6 +20,7 @@ class Modal extends PureComponent {
   }
 
   handleDocumentKeyUp = (e) => {
+    console.log('keyup');
     if (e.keyCode === 27) {
       this.onClose();
     }
