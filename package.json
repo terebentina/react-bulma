@@ -21,7 +21,8 @@
   },
   "dependencies": {
     "bulma": "^0.1.2",
-    "classnames": "^2.2.5"
+    "classnames": "^2.2.5",
+    "dom-helpers": "^2.4.0"
   },
   "peerDependencies": {
     "react": "15.x"
