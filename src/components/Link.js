@@ -1,24 +1,22 @@
 import React, { PropTypes } from 'react';
+import classNames from 'classnames';
 import Icon from './Icon';
 
-function Link({ children, kind, size, style, state, icon, iconPosition }) {
-  let className = 'button';
-  if (kind) {
-    className += ` is-${kind}`;
-  }
-  if (size) {
-    className += ` is-${size}`;
-  }
-  if (style) {
-    className += ` is-${style}`;
-  }
-  if (state) {
-    className += ` is-${state}`;
-  }
+function Link({ children, className, kind, size, style, state, icon, iconPosition }) {
+  const cName = classNames(
+    'button',
+    className,
+    {
+      [`is-${kind}`]: kind,
+      [`is-${size}`]: size,
+      [`is-${style}`]: style,
+      [`is-${state}`]: state,
+    }
+  );
 
   return (
-    <a className={className}>
-      {iconPosition == 'left' && icon && <Icon name={icon} />}
+    <a className={cName}>
+      {(!iconPosition || iconPosition == 'left') && icon && <Icon name={icon} />}
       {children}
       {iconPosition == 'right' && icon && <Icon name={icon} />}
     </a>
@@ -27,6 +25,7 @@ function Link({ children, kind, size, style, state, icon, iconPosition }) {
 
 Link.propTypes = {
   children: PropTypes.any,
+  className: PropTypes.string,
   kind: PropTypes.oneOf(['primary', 'info', 'success', 'warning', 'danger', 'link']),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   style: PropTypes.oneOf(['outlined', 'inverted']),

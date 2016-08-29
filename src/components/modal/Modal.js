@@ -32,25 +32,28 @@ class Modal extends PureComponent {
   };
 
   onShow = () => {
-    const doc = ownerDocument(this);
-    this._onDocumentKeyupListener = addEventListener(doc, 'keyup', this.handleDocumentKeyUp);
+    if (this.props.hasClose) {
+      const doc = ownerDocument(this);
+      this._onDocumentKeyupListener = addEventListener(doc, 'keyup', this.handleDocumentKeyUp);
+    }
   };
 
   onClose = () => {
-    this._onDocumentKeyupListener.remove();
+    if (this._onDocumentKeyupListener) {
+      this._onDocumentKeyupListener.remove();
+    }
     if (this.props.onClose) {
       this.props.onClose();
     }
   };
 
   render() {
-    const { children, className, isActive, hasClose, hasBgClose } = this.props;
+    const { children, className, isActive, hasBgClose } = this.props;
 
     return (
       <div className={classNames('modal', className, isActive && 'is-active')}>
         <div className="modal-background" onClick={hasBgClose && this.onClose} />
         {children}
-        {hasClose && <button className="modal-close" onClick={this.onClose} /> }
       </div>
     );
   }
