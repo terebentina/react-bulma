@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import Icon from './Icon';
 
-function Link({ children, className, kind, size, style, state, icon, iconPosition }) {
+function Link({ children, href, className, kind, size, style, state, icon, iconPosition }) {
   const cName = classNames(
     'button',
     className,
@@ -15,7 +15,7 @@ function Link({ children, className, kind, size, style, state, icon, iconPositio
   );
 
   return (
-    <a className={cName}>
+    <a className={cName} href={href}>
       {(!iconPosition || iconPosition == 'left') && icon && <Icon name={icon} />}
       {children}
       {iconPosition == 'right' && icon && <Icon name={icon} />}
@@ -25,6 +25,7 @@ function Link({ children, className, kind, size, style, state, icon, iconPositio
 
 Link.propTypes = {
   children: PropTypes.any,
+  href: PropTypes.string,
   className: PropTypes.string,
   kind: PropTypes.oneOf(['primary', 'info', 'success', 'warning', 'danger', 'link']),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
