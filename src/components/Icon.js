@@ -1,14 +1,11 @@
 import React, { PropTypes } from 'react';
+import classNames from 'classnames';
+import FontAwesome from 'react-fontawesome';
 
 function Icon({ name, size }) {
-  let cName = 'icon';
-  if (size) {
-    cName += ` is-${size}`;
-  }
-
   return (
-    <span className={cName}>
-      <i className={`fa fa-${name}`} />
+    <span className={classNames('icon', size && `is-${size}`)}>
+      <FontAwesome name={name} />
     </span>
   );
 }
