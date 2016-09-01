@@ -25,15 +25,12 @@
     "dom-helpers": "^2.4.0"
   },
   "peerDependencies": {
-    "react": "15.x",
-    "react-dom": "^15.3.1",
-    "react-fontawesome": "^1.1.0"
+    "react": "15.x"
   },
   "devDependencies": {
     "nwb": "0.12.x",
     "react": "^15.3.1",
-    "react-dom": "^15.3.1",
-    "react-fontawesome": "^1.1.0"
+    "react-dom": "^15.3.1"
   },
   "author": "Dan Caragea",
   "homepage": "",
