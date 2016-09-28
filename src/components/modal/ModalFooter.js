@@ -9,7 +9,7 @@ function ModalFooter({ children, className }) {
 }
 
 ModalFooter.propTypes = {
-  children: PropTypes.any,
+  children: PropTypes.node,
   className: PropTypes.string,
 };
 

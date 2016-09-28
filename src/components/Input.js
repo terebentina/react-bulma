@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import Control from './Control';
 import Icon from './Icon';
 
-function Input({ value, name, id, type = 'text', label, placeholder, expanded, kind, size, state, message, icon, iconPosition, onChange }) {
+function Input({ value, name, id, type = 'text', label, placeholder, expanded, kind, size, state, message, icon, iconPosition, onChange, ...otherProps }) {
   let inputClassName = 'input';
   let controlClassName = '';
   let messageClassName = 'help';
@@ -39,6 +39,7 @@ function Input({ value, name, id, type = 'text', label, placeholder, expanded, k
         placeholder={placeholder}
         disabled={state == 'disabled'}
         onChange={onChange}
+        {...otherProps}
       />
       {icon && <Icon name={icon} />}
       {message && <span className={messageClassName}>{message}</span>}
