@@ -22,7 +22,7 @@ function Select({ value, options, name, id, label, placeholder, expanded, kind, 
 
   let parsedOptions = [];
   if (typeof options == 'object') {
-    parsedOptions = Object.keys(options).map((option) => ({ key: option, value: options[option] }));
+    parsedOptions = Object.keys(options).map((option) => ({ key: option, title: options[option] }));
   } else {
     parsedOptions = options;
   }
@@ -42,7 +42,7 @@ function Select({ value, options, name, id, label, placeholder, expanded, kind, 
           {...otherProps}
         >
           {
-            parsedOptions.map(({ key, val }) => <option key={key} value={key}>{val}</option>)
+            parsedOptions.map(({ key, title }) => <option key={key} value={key}>{title}</option>)
           }
         </select>
       </span>
