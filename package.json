@@ -12,7 +12,7 @@
     "umd"
   ],
   "scripts": {
-    "build": "nwb build-react-component",
+    "build": "nwb build-react-component --no-demo",
     "clean": "nwb clean-module && npm clean-demo",
     "start": "nwb serve-react-demo",
     "test": "nwb test",
@@ -20,7 +20,7 @@
     "test:watch": "nwb test --server"
   },
   "dependencies": {
-    "bulma": "^0.1.2",
+    "bulma": "github:jgthms/bulma",
     "classnames": "^2.2.5",
     "dom-helpers": "^2.4.0"
   },
