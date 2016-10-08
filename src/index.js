@@ -3,6 +3,7 @@ import Link from './components/Link';
 import Control from './components/Control';
 import Icon from './components/Icon';
 import Input from './components/Input';
+import Select from './components/Select';
 import Modal from './components/modal/Modal';
 import ModalBody from './components/modal/ModalBody';
 import ModalContent from './components/modal/ModalContent';
@@ -17,6 +18,7 @@ export default {
   Control,
   Icon,
   Input,
+  Select,
   Modal,
   ModalBody,
   ModalContent,

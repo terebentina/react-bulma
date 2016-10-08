@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import Control from './Control';
 
-function Input({ value, options, name, id, label, placeholder, expanded, kind, size, state, message, onChange, ...otherProps }) {
+function Select({ value, options, name, id, label, placeholder, expanded, kind, size, state, message, onChange, ...otherProps }) {
   let inputClassName = 'input';
   let controlClassName = '';
   let messageClassName = 'help';
@@ -51,7 +51,7 @@ function Input({ value, options, name, id, label, placeholder, expanded, kind, s
   );
 }
 
-Input.propTypes = {
+Select.propTypes = {
   value: PropTypes.string.isRequired,
   options: PropTypes.oneOfType([PropTypes.object, PropTypes.arrayOf(PropTypes.object)]).isRequired,
   name: PropTypes.string,
@@ -66,4 +66,4 @@ Input.propTypes = {
   onChange: PropTypes.func.isRequired,
 };
 
-export default Input;
+export default Select;
