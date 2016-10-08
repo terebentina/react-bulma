@@ -42,7 +42,7 @@ function Select({ value, options, name, id, label, placeholder, expanded, kind, 
           {...otherProps}
         >
           {
-            parsedOptions.map(({ key, val }) => <option name={key}>{val}</option>)
+            parsedOptions.map(({ key, val }) => <option value={key}>{val}</option>)
           }
         </select>
       </span>
