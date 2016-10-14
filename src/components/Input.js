@@ -48,7 +48,7 @@ function Input({ value, name, id, type = 'text', label, placeholder, expanded, k
 }
 
 Input.propTypes = {
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
   name: PropTypes.string,
   id: PropTypes.string,
   type: PropTypes.string,
@@ -61,7 +61,7 @@ Input.propTypes = {
   message: PropTypes.string,
   icon: PropTypes.node,
   iconPosition: PropTypes.oneOf(['left', 'right']),
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
 };
 
 export default Input;
