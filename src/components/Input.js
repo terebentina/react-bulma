@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import Control from './Control';
 import Icon from './Icon';
 
-function Input({ value, name, id, type = 'text', label, placeholder, expanded, kind, size, state, message, icon, iconPosition, onChange, ...otherProps }) {
+function Input({ id, label, expanded, kind, size, state, message, icon, iconPosition, ...otherProps }) {
   let inputClassName = 'input';
   let controlClassName = '';
   let messageClassName = 'help';
@@ -31,14 +31,9 @@ function Input({ value, name, id, type = 'text', label, placeholder, expanded, k
     <Control className={controlClassName}>
       {label && <label className="label" htmlFor={id}>{label}</label>}
       <input
-        value={value || ''}
         className={inputClassName}
-        type={type}
-        name={name}
         id={id}
-        placeholder={placeholder}
         disabled={state == 'disabled'}
-        onChange={onChange}
         {...otherProps}
       />
       {icon && <Icon name={icon} />}
@@ -48,12 +43,8 @@ function Input({ value, name, id, type = 'text', label, placeholder, expanded, k
 }
 
 Input.propTypes = {
-  value: PropTypes.string,
-  name: PropTypes.string,
   id: PropTypes.string,
-  type: PropTypes.string,
   label: PropTypes.string,
-  placeholder: PropTypes.string,
   expanded: PropTypes.bool,
   kind: PropTypes.oneOf(['primary', 'info', 'success', 'warning', 'danger']),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
@@ -61,7 +52,6 @@ Input.propTypes = {
   message: PropTypes.string,
   icon: PropTypes.node,
   iconPosition: PropTypes.oneOf(['left', 'right']),
-  onChange: PropTypes.func,
 };
 
 export default Input;
