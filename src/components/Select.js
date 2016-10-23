@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import Control from './Control';
 
-function Select({ value, options, name, id, label, placeholder, expanded, kind, size, state, message, onChange, ...otherProps }) {
+function Select({ options, id, label, expanded, kind, size, state, message, ...otherProps }) {
   let inputClassName = 'input';
   let controlClassName = '';
   let messageClassName = 'help';
@@ -22,7 +22,7 @@ function Select({ value, options, name, id, label, placeholder, expanded, kind, 
 
   let parsedOptions = [];
   if (typeof options == 'object') {
-    parsedOptions = Object.keys(options).map((option) => ({ key: option, title: options[option] }));
+    parsedOptions = Object.keys(options).map((option) => ({ value: option, title: options[option] }));
   } else {
     parsedOptions = options;
   }
@@ -32,17 +32,13 @@ function Select({ value, options, name, id, label, placeholder, expanded, kind, 
       {label && <label className="label" htmlFor={id}>{label}</label>}
       <span className="select">
         <select
-          value={value}
           className={inputClassName}
-          name={name}
           id={id}
-          placeholder={placeholder}
           disabled={state == 'disabled'}
-          onChange={onChange}
           {...otherProps}
         >
           {
-            parsedOptions.map(({ key, title }) => <option key={key} value={key}>{title}</option>)
+            parsedOptions.map(({ value, title }, idx) => <option key={idx} value={value}>{title}</option>)
           }
         </select>
       </span>
@@ -52,18 +48,14 @@ function Select({ value, options, name, id, label, placeholder, expanded, kind, 
 }
 
 Select.propTypes = {
-  value: PropTypes.string.isRequired,
   options: PropTypes.oneOfType([PropTypes.object, PropTypes.arrayOf(PropTypes.object)]).isRequired,
-  name: PropTypes.string,
   id: PropTypes.string,
   label: PropTypes.string,
-  placeholder: PropTypes.string,
   expanded: PropTypes.bool,
   kind: PropTypes.oneOf(['primary', 'info', 'success', 'warning', 'danger']),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   state: PropTypes.oneOf(['loading', 'disabled']),
   message: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
 };
 
 export default Select;
