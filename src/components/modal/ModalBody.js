@@ -9,7 +9,7 @@ function ModalBody({ children, className }) {
 }
 
 ModalBody.propTypes = {
-  children: PropTypes.any,
+  children: PropTypes.node,
   className: PropTypes.string,
 };
 

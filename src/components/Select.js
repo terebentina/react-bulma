@@ -1,45 +1,35 @@
 import React, { PropTypes } from 'react';
 import Control from './Control';
 
-function Select({ options, id, label, expanded, kind, size, state, message, ...otherProps }) {
-  let inputClassName = 'input';
+function Select({ children, id, label, expanded, kind, size, state, message, ...otherProps }) {
+  let selectClassName = 'select';
   let controlClassName = '';
   let messageClassName = 'help';
 
   if (kind) {
-    inputClassName += ` is-${kind}`;
+    selectClassName += ` is-${kind}`;
     messageClassName += ` is-${kind}`;
   }
   if (size) {
-    inputClassName += ` is-${size}`;
+    selectClassName += ` is-${size}`;
   }
   if (state == 'loading') {
     controlClassName += ' is-loading';
   }
   if (expanded) {
-    inputClassName += ' is-expanded';
-  }
-
-  let parsedOptions = [];
-  if (typeof options == 'object') {
-    parsedOptions = Object.keys(options).map((option) => ({ value: option, title: options[option] }));
-  } else {
-    parsedOptions = options;
+    selectClassName += ' is-expanded';
   }
 
   return (
     <Control className={controlClassName}>
       {label && <label className="label" htmlFor={id}>{label}</label>}
-      <span className="select">
+      <span className={selectClassName}>
         <select
-          className={inputClassName}
           id={id}
           disabled={state == 'disabled'}
           {...otherProps}
         >
-          {
-            parsedOptions.map(({ value, title }, idx) => <option key={idx} value={value}>{title}</option>)
-          }
+          {children}
         </select>
       </span>
       {message && <span className={messageClassName}>{message}</span>}
@@ -48,7 +38,7 @@ function Select({ options, id, label, expanded, kind, size, state, message, ...o
 }
 
 Select.propTypes = {
-  options: PropTypes.oneOfType([PropTypes.object, PropTypes.arrayOf(PropTypes.object)]).isRequired,
+  children: PropTypes.node,
   id: PropTypes.string,
   label: PropTypes.string,
   expanded: PropTypes.bool,

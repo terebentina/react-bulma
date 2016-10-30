@@ -22,7 +22,7 @@ function Control({ children, className, type, addonPosition }) {
 }
 
 Control.propTypes = {
-  children: PropTypes.any,
+  children: PropTypes.node,
   className: PropTypes.string,
   type: PropTypes.oneOf(['group', 'addons']),
   addonPosition: PropTypes.oneOf(['left', 'centered', 'right']),
